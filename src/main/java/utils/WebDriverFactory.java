@@ -29,7 +29,7 @@ public class WebDriverFactory {
                 driver = new ChromeDriver(options);
                 break;
         }
-
+        driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
 
         return driver;

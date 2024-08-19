@@ -17,7 +17,7 @@ public class ConfigReader {
         properties.load(input);
        } catch (IOException e){
            LOGGER.log(Level.SEVERE, "Failed to load configuration file.", e);
-           throw new RuntimeException("Failed to load configuration file.");
+//           throw new RuntimeException("Failed to load configuration file.");
        }
     }
 
