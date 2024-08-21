@@ -7,6 +7,7 @@ target/
 *.iml
 *.log
 /allure-results/
+.env
 
 
 ### IntelliJ IDEA ###
@@ -15,7 +16,6 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 *.iws
-*.iml
 *.ipr
 
 ### Eclipse ###

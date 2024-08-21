@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
 import utils.ConfigReader;
@@ -21,10 +20,10 @@ public class BaseTest {
         driver = WebDriverFactory.createWebDriver(browser);
     }
 
-//    @AfterMethod
-//    public void tearDown(){
-//        if (driver != null){
-//            driver.quit();
-//        }
-//    }
+    @AfterMethod
+    public void tearDown(){
+        if (driver != null){
+            driver.quit();
+        }
+    }
 }
