@@ -7,7 +7,7 @@ target/
 *.iml
 *.log
 /allure-results/
-.env
+*.env
 
 
 ### IntelliJ IDEA ###
