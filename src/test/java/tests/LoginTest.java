@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest{
 
         loginPage.login(configReader.getValidEmail(), configReader.getValidPassword());
 
-        Assert.assertEquals(homePage.getSignOutBtn().getText(), CommonData.SIGN_OUT_BTN_TEXT);
+        Assert.assertEquals(getText(homePage.getSignOutBtn()), CommonData.SIGN_OUT_BTN_TEXT);
     }
 
     @Test
@@ -42,6 +42,6 @@ public class LoginTest extends BaseTest{
         loginPage.login(LoginData.INVALID_EMAIL, LoginData.INVALID_PASSWORD);
 
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
-        Assert.assertEquals(loginPage.getErrorMessage().getText(), CommonData.ERROR_LOGIN_MESSAGE);
+        Assert.assertEquals(getText(loginPage.getErrorMessage()), CommonData.ERROR_LOGIN_MESSAGE);
     }
 }

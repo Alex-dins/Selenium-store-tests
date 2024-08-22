@@ -8,6 +8,7 @@ public class HomePage {
     private WebDriver driver;
 
     private By signOutBtn = By.cssSelector(".logout");
+    private By contactUsBtn = By.cssSelector("div#contact-link");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -15,5 +16,9 @@ public class HomePage {
 
     public WebElement getSignOutBtn(){
         return driver.findElement(signOutBtn);
+    }
+
+    public WebElement getContactUsBtn(){
+        return driver.findElement(contactUsBtn);
     }
 }
