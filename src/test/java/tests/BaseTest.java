@@ -3,8 +3,6 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
 import utils.ConfigReader;
 import utils.WebDriverFactory;
 
@@ -14,7 +12,6 @@ public class BaseTest {
     protected WebDriver driver;
     private ConfigReader configReader;
 
-    @BeforeMethod
     public void setUp() throws FileNotFoundException {
         configReader = new ConfigReader();
         String browser = configReader.getBrowser();

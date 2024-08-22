@@ -2,6 +2,7 @@ package tests;
 
 import data.ContactUsData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.ContactUsPage;
 import pages.HomePage;
@@ -10,19 +11,22 @@ import utils.UrlHelper;
 import java.io.FileNotFoundException;
 
 public class ContactUsTest extends BaseTest{
-    private UrlHelper urlHelper;
-    private HomePage homePage;
     private ContactUsPage contactUsPage;
 
-    @Test
-    public void successfulSendForm() throws FileNotFoundException {
-        urlHelper = new UrlHelper();
-        homePage = new HomePage(driver);
+    @BeforeMethod
+    public void openContactUsPage() throws FileNotFoundException {
+        setUp();
+        UrlHelper urlHelper = new UrlHelper();
+        HomePage homePage = new HomePage(driver);
         contactUsPage = new ContactUsPage(driver);
 
         driver.get(urlHelper.getBaseUrl());
 
         homePage.getContactUsBtn().click();
+    }
+
+    @Test
+    public void successfulSendForm() throws FileNotFoundException {
         contactUsPage.fillContactUsForm(ContactUsData.CUSTOMER_SERVICE, ContactUsData.EMAIL, ContactUsData.MESSAGE);
 
         Assert.assertEquals(getText(contactUsPage.getSuccessMessage()), ContactUsData.SUCCESS_MESSAGE);
@@ -30,13 +34,6 @@ public class ContactUsTest extends BaseTest{
 
     @Test
     public void sendFormWithoutEmail() throws FileNotFoundException {
-        urlHelper = new UrlHelper();
-        homePage = new HomePage(driver);
-        contactUsPage = new ContactUsPage(driver);
-
-        driver.get(urlHelper.getBaseUrl());
-
-        homePage.getContactUsBtn().click();
         contactUsPage.getMessageField().sendKeys(ContactUsData.MESSAGE);
         contactUsPage.getSubmitBtn().click();
 
@@ -45,13 +42,6 @@ public class ContactUsTest extends BaseTest{
 
     @Test
     public void sendFormWithoutMessage() throws FileNotFoundException {
-        urlHelper = new UrlHelper();
-        homePage = new HomePage(driver);
-        contactUsPage = new ContactUsPage(driver);
-
-        driver.get(urlHelper.getBaseUrl());
-
-        homePage.getContactUsBtn().click();
         contactUsPage.getEmailField().sendKeys(ContactUsData.EMAIL);
         contactUsPage.getSubmitBtn().click();
 
