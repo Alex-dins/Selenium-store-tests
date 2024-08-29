@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 
 public class BaseTest {
     protected WebDriver driver;
-    private ConfigReader configReader;
+    ConfigReader configReader;
 
     public void setUp() throws FileNotFoundException {
         configReader = new ConfigReader();
