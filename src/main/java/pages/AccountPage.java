@@ -16,6 +16,9 @@ public class AccountPage {
     private By agreementCheckbox = By.cssSelector("input[name='psgdpr']");
     private By saveBtn = By.cssSelector("[data-link-action]");
     private By successMessage = By.cssSelector(".alert-success ul li");
+    private By errorMessage = By.cssSelector(".alert-danger ul li");
+    private By genderMr = By.id("field-id_gender-1");
+    private By genderMrs = By.id("field-id_gender-2");
 
     public AccountPage(WebDriver driver){
         this.driver = driver;
@@ -52,5 +55,17 @@ public class AccountPage {
 
     public WebElement getSuccessMessage(){
         return driver.findElement(successMessage);
+    }
+
+    public WebElement getErrorMessage(){
+        return driver.findElement(errorMessage);
+    }
+
+    public WebElement selectGender(){
+        if(driver.findElement(genderMr).isSelected()){
+            return driver.findElement(genderMrs);
+        } else {
+            return driver.findElement(genderMr);
+        }
     }
 }
